@@ -20,7 +20,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# --- Custom CSS with Light/Dark Mode Compatibility ---
+# --- Custom CSS with Polished Navigation Bar ---
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
@@ -54,6 +54,37 @@ st.markdown("""
         background-color: var(--bg-color) !important;
     }
 
+    /* --- Polished Navigation Bar --- */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: var(--bg-color);
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .nav-links a {
+        color: var(--text-dark);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+        color: var(--med-blue);
+    }
+
+    /* --- Hero Section --- */
     .hero {
         background: linear-gradient(135deg, var(--med-blue) 0%, var(--med-dark) 100%);
         padding: 6rem 2rem;
@@ -63,6 +94,7 @@ st.markdown("""
         border-radius: 0;
     }
 
+    /* --- Cards & Sections --- */
     .info-section {
         background-color: var(--card-bg);
         padding: 2.5rem;
@@ -83,56 +115,150 @@ st.markdown("""
         border-top: 4px solid var(--med-blue);
     }
 
-    .service-card h3 {
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    /* --- Buttons --- */
+    .btn-primary {
+        background: white;
         color: var(--med-blue);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        margin-right: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
     }
 
-    .service-card p {
-        color: var(--text-light);
+    .btn-primary:hover {
+        background: var(--med-light);
     }
 
-    .emergency-box {
-        background: var(--med-blue);
-        padding: 2rem;
-        border-radius: 10px;
+    .btn-secondary {
+        background: transparent;
         color: white;
+        border: 2px solid white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
     }
 
-    .prediction-box {
-        background: var(--card-bg);
-        padding: 2rem;
-        border-radius: 10px;
-        margin: 1rem 0;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        color: var(--text-dark);
-    }
-
-    .stFileUploader > div > div {
-        border: 2px dashed var(--med-blue) !important;
-        background: rgba(48, 86, 211, 0.05) !important;
-        border-radius: 10px !important;
-    }
-
-    footer {
-        text-align: center;
-        padding: 2rem;
-        color: var(--text-light);
-        font-size: 0.9rem;
-        margin-top: 3rem;
+    .btn-secondary:hover {
+        background: rgba(255,255,255,0.1);
     }
 </style>
 """, unsafe_allow_html=True)
 
-# --- Hero Section ---
+# --- STREAMLIT-PROOF NAVIGATION BAR ---
+st.markdown("""
+<style>
+    /* 1. NUKE ALL STREAMLIT DEFAULTS */
+    header { visibility: hidden !important; height: 0 !important; }
+    .st-emotion-cache-zq5wmm { display: none !important; }
+    .stApp { padding-top: 0 !important; }
+
+    /* 2. MAIN NAV CONTAINER (EXACT MED1.PNG STYLE) */
+    .med1-perfect {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: white !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 1rem 5% !important;
+        border-bottom: 1px solid #e0e0e0 !important;
+        z-index: 99999 !important;
+        font-family: 'Poppins' !important;
+        height: 70px !important;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+    }
+
+    /* 3. LOGO SECTION (LEFT) */
+    .logo-perfect {
+            <div style="display: flex; align-items: center;">
+        <img src="https://i.ibb.co/SwtCX8gk/Med-Predict-Pro-Logo-with-Navy-and-White.png" style="width: 60px; height: 60px; border-radius: 50%;">
+        <h1 style="margin-left: 10px;">MedPredict Pro</h1>
+    </div>}
+
+    /* 4. LINKS SECTION (RIGHT) */
+    .links-perfect {
+        display: flex !important;
+        gap: 3rem !important; /* Exact MED1.png spacing */
+        margin-right: 30px !important;
+    }
+
+    .links-perfect a {
+        color: #2c3e50 !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        font-size: 16px !important;
+        transition: all 0.2s ease !important;
+        padding: 8px 0 !important;
+    }
+
+    .links-perfect a:hover {
+        color: #3056d3 !important;
+        transform: translateY(-1px) !important;
+    }
+
+    /* 5. LOGO STYLING */
+    .logo-perfect img {
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        aspect-ratio: 1/1 !important;  /* Double insurance */
+        object-position: center !important;
+        border: 2px solid #f0f0f0 !important;
+        transition: all 0.3s ease !important;
+    }
+
+
+    .logo-perfect img:hover {
+        transform: scale(1.1) !important; /* Gentle grow effect */
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  }
+
+</style>
+
+<!-- FINAL STRUCTURE -->
+<div class="med1-perfect">
+    <!-- LEFT: Logo + Text -->
+    <div class="logo-perfect">
+    <img src="https://i.ibb.co/SwtCX8gk/Med-Predict-Pro-Logo-with-Navy-and-White.png"
+     style="width:40px; height:40px; clip-path:circle(50% at 50% 50%); object-fit:cover; border:1px solid #f0f0f0;">
+    <span style="font-weight:600;color:#1a237e;font-size:1.1rem; margin-left:12px;">MedPredict Pro</span>
+</div>
+
+<!-- RIGHT: Links -->
+<div class="links-perfect">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Our Services</a>
+    </div>
+</div>
+
+<!-- CONTENT SPACER -->
+<div style="height:80px;"></div>
+""", unsafe_allow_html=True)
+
+# --- Hero Section (Updated with New Button Classes) ---
 st.markdown("""
 <div class="hero">
-    <h1 style="font-size: 2.8rem; margin-bottom: 1rem;">MedPredict Pro</h1>
+    <h1 style="font-size: 2.8rem; margin-bottom: 1rem;">MedPredict Pro </h1>
     <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
-        Pakistan's Premier AI-Powered Medical Cost Prediction Platform
+        Pakistan's Premiere AI-Powered Medical Cost Prediction Platform
     </p>
     <div style="margin-top: 2rem;">
-        <button style="background: white; color: var(--med-blue); border: none; padding: 12px 30px; border-radius: 50px; font-weight: 600; margin-right: 1rem;">Get Started</button>
-        <button style="background: transparent; color: white; border: 2px solid white; padding: 12px 30px; border-radius: 50px; font-weight: 600;">Learn More</button>
+        <button class="btn-primary">Get Started</button>
+        <button class="btn-secondary">Learn More</button>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -202,16 +328,16 @@ st.markdown("""
 
 # --- Emergency Contact ---
 st.markdown("""
-<div class="emergency-box">
+<div class="emergency-box" style="background: var(--med-blue); color: white; padding: 2rem; border-radius: 12px;">
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
         <div>
-            <h3>Emergency Support</h3>
-            <p style="font-size: 1.5rem; font-weight: 600;">+92 300 1234567</p>
-            <p>24/7 emergency medical cost consultation</p>
+            <h3 style="color: white;">Emergency Support</h3>
+            <p style="font-size: 1.5rem; font-weight: 600; color: white;">+92 300 1234567</p>
+            <p style="color: white;">24/7 emergency medical cost consultation</p>
         </div>
         <div>
-            <h3>Hospital Partnerships</h3>
-            <p>Interested in integrating our system?</p>
+            <h3 style="color: white;">Hospital Partnerships</h3>
+            <p style="color: white;">Interested in integrating our system?</p>
             <button style="background: white; color: var(--med-blue); border: none; padding: 10px 20px; border-radius: 50px; font-weight: 600; margin-top: 0.5rem;">Contact Us</button>
         </div>
     </div>
@@ -299,14 +425,34 @@ if uploaded_file is not None:
         user_inputs = {}
         col1, col2 = st.columns(2)
 
-        with col1:
-            for col in numerical_cols:
-                if col.lower() == 'age':
-                    user_inputs[col] = st.slider("Age", min_value=17, max_value=90, value=30)
-                elif col.lower() == 'bmi':
-                    user_inputs[col] = st.slider("BMI", min_value=14.0, max_value=40.0, value=25.0)
+    with col1:
+        for col in numerical_cols:
+            if col.lower() == 'age':
+                user_inputs[col] = st.slider("Age", min_value=17, max_value=90, value=30)
+            elif col.lower() == 'bmi':
+                st.markdown("**Do you know your BMI?**")
+                manual_bmi = st.checkbox("Yes, I want to enter it manually", key="manual_bmi_checkbox")
 
-        with col2:
+                if manual_bmi:
+                    user_inputs[col] = st.slider("BMI", min_value=14.0, max_value=40.0, value=25.0)
+                else:
+                    st.markdown("**No worries! Enter your height and weight below to calculate it.**")
+
+                    weight = st.number_input("Weight (kg)", min_value=30.0, max_value=200.0, value=60.0, step=0.5, key="weight_input")
+                    height_cm = st.number_input("Height (cm)", min_value=100.0, max_value=250.0, value=160.0, step=0.5, key="height_input")
+
+                    height_m = height_cm / 100
+
+                    if height_m > 0:
+                        calculated_bmi = round(weight / (height_m ** 2), 1)
+                    else:
+                        calculated_bmi = 0.0
+
+                    st.markdown(f"<div style='color: gray;'>Your calculated BMI: <b>{calculated_bmi}</b></div>", unsafe_allow_html=True)
+                    user_inputs[col] = calculated_bmi
+
+
+    with col2:
             for col in numerical_cols:
                 if col.lower() == 'children':
                     user_inputs[col] = st.slider("Children", min_value=0, max_value=20, value=1)
@@ -316,14 +462,15 @@ if uploaded_file is not None:
                     default_val = float(original_data[col].median())
                     user_inputs[col] = st.slider(f"{col.capitalize()}", min_value=round(col_min, 2), max_value=round(col_max, 2), value=round(default_val, 2))
 
-        for col in categorical_cols:
-            options = original_data[col].dropna().unique().tolist()
-            selected = st.selectbox(f"{col.capitalize()}", options)
+            for col in categorical_cols:
+                options = original_data[col].dropna().unique().tolist()
+                selected = st.selectbox(f"{col.capitalize()}", options)
+
             for opt in options:
                 user_inputs[f"{col}_{opt}"] = 1 if selected == opt else 0
 
-        if st.button("Predict Medical Cost", type="primary"):
-            with st.spinner("Calculating your estimate..."):
+    if st.button("Predict Medical Cost", type="primary"):
+        with st.spinner("Calculating your estimate..."):
                 try:
                     user_input_df = pd.DataFrame([user_inputs])
                     user_input_df = user_input_df.reindex(columns=X_train.columns, fill_value=0)
@@ -340,64 +487,68 @@ if uploaded_file is not None:
                 except Exception as e:
                     st.error(f"Error in prediction: {e}")
 
-        # --- Model Performance ---
+    # --- Model Performance ---
         st.markdown("""
         <div style="margin-top: 3rem;">
             <h3 style="color: var(--text-dark);">Model Accuracy Metrics</h3>
             <p style="color: var(--text-light);">Our prediction model has been validated with:</p>
         """, unsafe_allow_html=True)
 
-        y_pred = best_model.predict(X_test)
-        cols = st.columns(3)
-        cols[0].metric("Mean Absolute Error", f"Rs. {mean_absolute_error(y_test, y_pred):,.2f}")
-        cols[1].metric("Mean Squared Error", f"Rs. {mean_squared_error(y_test, y_pred):,.2f}")
-        cols[2].metric("R² Score", f"{r2_score(y_test, y_pred):.2f}")
+    y_pred = best_model.predict(X_test)
+    cols = st.columns(3)
+    cols[0].metric("Mean Absolute Error", f"{mean_absolute_error(y_test, y_pred):,.2f}")
+    cols[1].metric("Mean Squared Error", f"{mean_squared_error(y_test, y_pred):,.2f}")
+    cols[2].metric("R² Score", f"{r2_score(y_test, y_pred):.2f}")
 
-        # --- Visualizations ---
-        st.markdown("""
-        <div style="margin-top: 3rem;">
-            <h3 style="color: var(--text-dark);">Data Visualizations</h3>
-        """, unsafe_allow_html=True)
+            # --- Visualizations ---
+st.markdown("""
+            <div style="margin-top: 3rem;">
+                <h3 style="color: var(--text-dark);">Data Visualizations</h3>
+            """, unsafe_allow_html=True)
 
-        plot_option = st.selectbox('Select Visualization:',
-                                 ['Distribution of Charges', 'Residuals Distribution', 'Actual vs Predicted'])
+if 'y_test' in locals() and 'y_pred' in locals():
+    plot_option = st.selectbox('Select Visualization:',
+                             ['Distribution of Charges', 'Residuals Distribution', 'Actual vs Predicted'])
+    fig, ax = plt.subplots(figsize=(8, 4))
 
-        fig, ax = plt.subplots(figsize=(8, 4))
-        if plot_option == 'Distribution of Charges':
-            sns.histplot(y, kde=True, ax=ax, color='#3056D3')
-            ax.set_title('Medical Charges Distribution', fontsize=14, pad=20)
-            ax.set_xlabel('Amount (Rs.)', fontsize=12)
-        elif plot_option == 'Residuals Distribution':
-            residuals = y_test - y_pred
-            sns.histplot(residuals, kde=True, color='#3056D3', ax=ax)
-            ax.set_title('Prediction Residuals', fontsize=14, pad=20)
-            ax.set_xlabel('Error (Rs.)', fontsize=12)
-        elif plot_option == 'Actual vs Predicted':
-            ax.scatter(y_test, y_pred, color='#3056D3', alpha=0.6)
-            ax.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--')
-            ax.set_title('Actual vs Predicted Charges', fontsize=14, pad=20)
-            ax.set_xlabel('Actual (Rs.)', fontsize=12)
-            ax.set_ylabel('Predicted (Rs.)', fontsize=12)
+    if plot_option == 'Distribution of Charges':
+        sns.histplot(y_test, kde=True, ax=ax, color='#3056D3')
+        ax.set_title('Medical Charges Distribution', fontsize=14, pad=20)
+        ax.set_xlabel('Amount (Rs.)', fontsize=12)
+    elif plot_option == 'Residuals Distribution':
+        residuals = y_test - y_pred
+        sns.histplot(residuals, kde=True, color='#3056D3', ax=ax)
+        ax.set_title('Prediction Residuals', fontsize=14, pad=20)
+        ax.set_xlabel('Error (Rs.)', fontsize=12)
+    elif plot_option == 'Actual vs Predicted':
+        ax.scatter(y_test, y_pred, color='#3056D3', alpha=0.6)
+        ax.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--')
+        ax.set_title('Actual vs Predicted Charges', fontsize=14, pad=20)
+        ax.set_xlabel('Actual (Rs.)', fontsize=12)
+        ax.set_ylabel('Predicted (Rs.)', fontsize=12)
+    st.pyplot(fig)
+else:
+    st.info("Upload your dataset and predict medical cost to view visualizations.")
 
-        st.pyplot(fig)
-
-# --- FAQ Section ---
+    # --- FAQ Section ---
 with st.container():
-    st.markdown("### Frequently Asked Questions")
+        st.markdown("### Frequently Asked Questions")
 
-    with st.expander("How accurate are the predictions?"):
-        st.write("Our models achieve an average R² score of 0.87 across all medical categories, with regular updates to maintain accuracy.")
+        with st.expander("How accurate are the predictions?"):
+            st.write("Our models achieve an average R² score of 0.88 across all medical categories, with regular updates to maintain accuracy.")
 
-    with st.expander("Is my data secure?"):
-        st.write("All data is processed securely with HIPAA-compliant protocols. We never store personal health information.")
+        with st.expander("Is my data secure?"):
+            st.write("All data is processed securely with HIPAA-compliant protocols. We never store personal health information.")
 
-    with st.expander("Do you cover all Pakistani hospitals?"):
-        st.write("We currently include data from 85% of major hospitals and are expanding our network monthly.")
+        with st.expander("Do you cover all Pakistani hospitals?"):
+            st.write("We currently use synthesised datasets and aim to include data from 85% of major hospitals and are expanding our network monthly.")
 
 # --- Footer ---
 st.markdown("""
-<footer>
-    <p>© 2023 MedPredict Pro. All rights reserved.</p>
-    <p style="margin-top: 0.5rem;">Pakistan's Most Trusted Medical Cost Prediction Platform</p>
-</footer>
+<div style="margin-top: 3rem; text-align: center;">
+    <footer>
+        <p>© 2025 MedPredict Pro. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Pakistan's Most Trusted Medical Cost Prediction Platform</p>
+    </footer>
+</div>
 """, unsafe_allow_html=True)
