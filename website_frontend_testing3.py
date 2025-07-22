@@ -519,7 +519,7 @@ if 'y_test' in locals() and 'y_pred' in locals():
         residuals = y_test - y_pred
         sns.histplot(residuals, kde=True, color='#3056D3', ax=ax)
         ax.set_title('Prediction Residuals', fontsize=14, pad=20)
-        ax.set_xlabel('Error (Rs.)', fontsize=12)
+        ax.set_xlabel('Error', fontsize=12)
     elif plot_option == 'Actual vs Predicted':
         ax.scatter(y_test, y_pred, color='#3056D3', alpha=0.6)
         ax.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--')
