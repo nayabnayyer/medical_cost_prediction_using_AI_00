@@ -4,8 +4,10 @@
 
 MedPredict Pro is a complete end-to-end machine learning web application that predicts medical costs based on patient demographics and health factors. Built for the Pakistani healthcare landscape, it combines **data preprocessing**, **model optimization**, and **interactive deployment** into a seamless user experience.
 
-🔗 **Live Demo:** [your-streamlit-link]  
-📁 **GitHub Repo:** [your-repo-link]
+
+🔗 **Live Demo:** [https://medicalpredictpro-hnzfulxbrqbtp47c3lehwu.streamlit.app/](https://medicalpredictpro-hnzfulxbrqbtp47c3lehwu.streamlit.app/)  
+📁 **GitHub Repo:** [https://github.com/nayabnayyer/medical_cost_prediction_using_AI_00](https://github.com/nayabnayyer/medical_cost_prediction_using_AI_00)
+
 
 ---
 
